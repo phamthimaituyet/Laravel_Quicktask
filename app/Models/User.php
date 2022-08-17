@@ -64,6 +64,6 @@ class User extends Authenticatable
     // tạo Mutators
     public function setUserNameAttribute($username)
     {
-        $this->attributes['user_name'] = Str::slug($username);
+        $this->attributes['username'] = Str::slug($username);
     }
 }
