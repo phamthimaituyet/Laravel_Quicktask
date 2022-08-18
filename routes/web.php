@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware('admin');
 
 Route::prefix('tasks')->name('tasks.')->controller(TaskController::class)->group(function () {
     Route::get('/', 'index')->name('index');
