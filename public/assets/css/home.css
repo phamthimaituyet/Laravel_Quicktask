@@ -1,0 +1,22 @@
+button{
+    float: right;
+    padding: 5px;
+    margin-right: 5%;
+    background-color: white;
+    font-size: 15px;
+}
+
+a {
+    color: #71df88;
+    position: relative;
+}
+
+a:hover {
+    color: #ff3f70;
+}
+
+.alert-danger{
+    color: red;
+    padding: 10px;
+    font-size: 20px;
+}
