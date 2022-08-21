@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +21,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/',[HomeController::class,'index'])->middleware('locale')->name('home');
 
-Route::get('/login', [UserController::class, 'login'])->name('login.form');
+Route::get('/login', [UserController::class, 'login'])->middleware('locale')->name('login.form');
 Route::post('/login', [UserController::class, 'postLogin'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/register', [UserController::class, 'register'])->name('register.form');
+Route::get('/register', [UserController::class, 'register'])->middleware('locale')->name('register.form');
 Route::post('/register', [UserController::class, 'postRegister'])->name('register');
 
 Route::resource('users', UserController::class)->middleware('admin');
@@ -39,3 +40,5 @@ Route::prefix('tasks')->name('tasks.')->controller(TaskController::class)->group
     Route::put('/{task}', 'update')->name('update');
     Route::delete('/{task}', 'destroy')->name('destroy');
 });
+
+Route::get('lang/{lang}',[LangController::class, 'changeLang'])->middleware('locale')->name('lang');
