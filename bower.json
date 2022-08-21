@@ -1,0 +1,22 @@
+{
+  "name": "Laravel_Quicktask",
+  "description": "",
+  "main": "",
+  "authors": [
+    "phamthimaituyet <phamthimaituyet2000@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/phamthimaituyet/Laravel_Quicktask",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bower-package": "https://github.com/ColorlibHQ/AdminLTE.git#^3.2.0",
+    "jquery": "^3.6.0"
+  }
+}
