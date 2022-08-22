@@ -11,9 +11,9 @@
 
 <body>
     @if (session('alert'))
-        <div class="alert alert-danger">
-            {{ session('alert') }}
-        </div>
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
     @endif
     <button><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></button>
 </body>
