@@ -3,6 +3,7 @@
 @section('title','home')
 
 @section('content_header')
+
 @if (session('alert'))
     <div class="alert alert-success">
         {{ session('alert') }}

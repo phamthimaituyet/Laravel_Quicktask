@@ -35,5 +35,6 @@ return [
         'title' => 'Title',
         'content' => 'Content',
         'status' => 'Status',
+        'list_task' => 'List tasks',
     ],
 ];
