@@ -17,10 +17,13 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = DB::table('tasks')
+            ->select('tasks.*', 'users.username')
             ->join('users', 'tasks.user_id', '=', 'users.id')
             ->get();
+
+        $users = User::all();
         
-        return view('pages.task.index', ['tasks' => $tasks]);
+        return view('pages.task.index', compact('tasks', 'users'));
     }
 
     /**
@@ -30,7 +33,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -41,7 +44,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only('title', 'content', 'status', 'user_id');
+        
+        if (!Task::create($data)) {
+            return redirect()->back()->withInput()->with('alert', trans('messages.alert.create_error'));
+        }
+
+        return redirect()->back()->withInput()->with('alert', trans('messages.alert.create_success'));
     }
 
     /**
@@ -63,7 +72,10 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::find($id);
+        $users = User::all();
+
+        return view('pages.task.edit', compact('task', 'users')); 
     }
 
     /**
@@ -75,7 +87,14 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $data = $request->only('title', 'content', 'status', 'user_id');
+
+        if (!$task->update($data)) {
+            return redirect()->back()->withInput()->with('alert', trans('messiges.alert.update_error'));
+        }
+
+        return redirect()->back()->withInput()->with('alert', trans('messiges.alert.update_success'));
     }
 
     /**
@@ -84,8 +103,14 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($task)
     {
-        //
+        $task = Task::find($task);
+
+        if (!$task->delete()) {
+            return redirect()->back()->withInput()->with('error', trans('messages.alert.delete_error'));
+        }
+
+        return redirect()->back()->withInput()->with('alert', trans('messages.alert.delete_success'));
     }
 }

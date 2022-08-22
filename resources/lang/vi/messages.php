@@ -37,4 +37,20 @@ return [
         'status' => 'Trạng thái',
         'list_task' => 'Danh sách các công việc'
     ],
+    'modal' => [
+        'close' => 'Đóng',
+        'cancel' => 'Thoát',
+        'unfinished' => 'Chưa hoàn thành',
+        'in_progress' => 'Đang trong quá trình',
+        'finished' => 'Đã hoàn thành',
+        'destroy' => 'Bạn có chắc chắn xóa không?',
+    ],
+    'alert' => [
+        'create_error' => 'Tạo lỗi',
+        'create_success' => 'Tạo thành công',
+        'update_error' => 'Chỉnh sửa lỗi',
+        'update_success' => 'Chỉnh sửa thành công',
+        'delete_error' => 'Xóa lỗi',
+        'delete_success' => 'Xóa thành công',
+    ],
 ];

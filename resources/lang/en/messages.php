@@ -37,4 +37,21 @@ return [
         'status' => 'Status',
         'list_task' => 'List tasks',
     ],
+    'modal' => [
+        'close' => 'Close',
+        'cancel' => 'Cancel',
+        'unfinished' => 'Unfinished',
+        'in_progress' => 'In Progress',
+        'finished' => 'Finished',
+        'destroy' => 'Are you sure to destroy?',
+    ],
+    'alert' => [
+        'create_error' => 'Create error',
+        'create_success' => 'Create success',
+        'update_error' => 'Update error',
+        'update_success' => 'Update success',
+        'delete_error' => 'Delete error',
+        'delete_success' => 'Delete success',
+        
+    ],
 ];
