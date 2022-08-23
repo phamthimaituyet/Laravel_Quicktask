@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function login()
     {
-        return view('login.login');
+        return view('pages.login.login');
     }
 
     public function postLogin(Request $request)
@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function register()
     {
-        return view('login.register');
+        return view('pages.login.register');
     }
 
     public function postRegister(Request $request)
@@ -49,7 +49,9 @@ class UserController extends Controller
      */
     public function index()
     {
-       //
+       $users = User::all();
+       
+       return view('pages.user.index', compact('users'));
     }
 
     /**
@@ -81,7 +83,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('pages.user.show', ['user' => $user]);
     }
 
     /**

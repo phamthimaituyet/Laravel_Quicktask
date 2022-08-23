@@ -12,4 +12,28 @@ return [
         'last_name' => 'Last Name',
         'login' => 'login',
     ],
+    'home' => [
+        'home' => 'Home',
+        'admin' => 'Admin',
+        'tasks' => 'Tasks',
+        'user' => 'User',
+        'search' => 'Search',
+        'welcome_to_website' => 'Welcome to Website',
+        'profile' => 'Profile',
+        'settings' => 'Settings',
+        'logout' => 'Logout',
+    ],
+    'user' => [
+        'add' => 'Add',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'view' => 'View',
+        'action' => 'Action',
+        'create_at' => 'Create at',
+    ],
+    'tasks' => [
+        'title' => 'Title',
+        'content' => 'Content',
+        'status' => 'Status',
+    ],
 ];
