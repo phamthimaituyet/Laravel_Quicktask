@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -13,7 +16,11 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = DB::table('tasks')
+            ->join('users', 'tasks.user_id', '=', 'users.id')
+            ->get();
+        
+        return view('pages.task.index', ['tasks' => $tasks]);
     }
 
     /**

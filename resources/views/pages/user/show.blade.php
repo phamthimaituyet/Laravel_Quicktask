@@ -32,26 +32,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>abcdd</td>
-                <td>jkhsiyeee</td>
-                <td>aheded</td>
-                <td>
-                    <a href="#" class="btn btn-sm btn-primary">
-                        <i class="fas fa-user"></i> {{ trans('messages.user.view')}}
-                    </a>
-                    <a class="btn btn-info btn-sm" href="#">
-                        <i class="fas fa-pencil-alt">
-                        </i>
-                        {{ trans('messages.user.edit') }}
-                    </a>
-                    <a class="btn btn-danger btn-sm" href="#">
-                        <i class="fas fa-trash">
-                        </i>
-                        {{ trans('messages.user.delete') }}
-                    </a>
-                </td>
-            </tr>
+            @foreach($user->tasks as $task)
+                <tr>
+                    <td>{{ $task->title}}</td>
+                    <td>{{ $task->content}}</td>
+                    <td>{{ $task->status }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">
+                            <i class="fas fa-user"></i> {{ trans('messages.user.view') }}
+                        </a>
+                        <a class="btn btn-info btn-sm" href="#">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            {{ trans('messages.user.edit')}}
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="#">
+                            <i class="fas fa-trash">
+                            </i>
+                            {{ trans('messages.user.delete')}}
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

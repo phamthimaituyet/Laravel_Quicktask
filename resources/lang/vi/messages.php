@@ -35,5 +35,6 @@ return [
         'title' => 'Tên công việc',
         'content' => 'Nội dung công việc',
         'status' => 'Trạng thái',
+        'list_task' => 'Danh sách các công việc'
     ],
 ];

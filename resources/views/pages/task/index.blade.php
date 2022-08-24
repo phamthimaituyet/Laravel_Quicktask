@@ -1,18 +1,18 @@
-@extends('layouts.index', ['user' => 'active'])
+@extends('layouts.index', ['task' => 'active'])
 
-@section('title','User')
+@section('title','List Task')
 
 @section('content_header')
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">{{ trans('messages.home.user')}}</h1>
+                <h1 class="m-0 text-dark">{{ trans('messages.tasks.list_task')}}</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ trans('messages.home.home') }}</a></li>
-                    <li class="breadcrumb-item active">{{ trans('messages.home.user') }}</li>
+                    <li class="breadcrumb-item active">{{ trans('messages.home.tasks') }}</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -21,33 +21,29 @@
 @endsection
 
 @section('content')
-<button type="button" class="btn btn-primary add">
-    <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('messages.user.add') }} 
+<button type="button" class="btn btn-primary" style="margin: 10px; float: left;">
+    <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('messages.user.add') }}
 </button>
 <div class="card-body">
     <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>{{ trans('messages.register.username') }}</th>
-                <th>{{ trans('messages.register.first_name') }}</th>
-                <th>{{ trans('messages.register.last_name') }}</th>
-                <th>Email</th>
-                <th>{{ trans('messages.user.create_at') }}</th>
-                <th>{{ trans('messages.home.admin') }}</th>
+                <th>{{ trans('messages.tasks.title') }}</th>
+                <th class="task-content">{{ trans('messages.tasks.content') }}</th>
+                <th>{{ trans('messages.tasks.status') }}</th>
+                <th>{{ trans('messages.home.user') }}</th>
                 <th>{{ trans('messages.user.action') }}</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $user)
+            @foreach($tasks as $task)
                 <tr>
-                    <td>{{ $user->username }}</td>
-                    <td>{{ $user->first_name }}</td>
-                    <td>{{ $user->last_name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at}}</td>
-                    <td>{{ $user->isAdmin ? 'admin' : 'user' }}</td>
+                    <td>{{ $task->title }}</td>
+                    <td>{{ $task->content }}</td>
+                    <td>{{ $task->status }}</td>
+                    <td>{{ $task->username }}</td>
                     <td>
-                        <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-sm btn-primary">
+                        <a href="#" class="btn btn-sm btn-primary">
                             <i class="fas fa-user"></i> {{ trans('messages.user.view') }}
                         </a>
                         <a class="btn btn-info btn-sm" href="#">

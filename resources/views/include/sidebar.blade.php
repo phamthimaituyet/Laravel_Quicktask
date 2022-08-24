@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('users.index')}}" class="nav-link {{ $user }}">
+                    <a href="{{ route('users.index') }}" class="nav-link {{ $user }}">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             {{ trans('messages.home.user') }}
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ $task }}">
+                    <a href="{{ route('tasks.index') }}" class="nav-link {{ $task }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             {{ trans('messages.home.tasks') }}
