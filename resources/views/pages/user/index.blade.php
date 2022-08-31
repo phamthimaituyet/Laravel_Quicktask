@@ -44,7 +44,7 @@
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->last_name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at}}</td>
+                    <td>{{ formatDate($user->created_at) }}</td>
                     <td>{{ $user->isAdmin ? 'admin' : 'user' }}</td>
                     <td>
                         <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-sm btn-primary">
