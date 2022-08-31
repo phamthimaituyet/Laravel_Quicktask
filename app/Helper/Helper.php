@@ -1,5 +1,6 @@
 <?php 
 
+// function format date time
 if (!function_exists('formatDate')) {
     function formatDate($date, string $format = 'D/m/Y')
     {
