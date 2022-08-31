@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -117,9 +120,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
-        //
+        DB::beginTransaction();
+
+        try {
+            $user = User::find($user);
+            $user->delete();
+            DB::commit();
+
+            return redirect()->route('users.index')->with('alert', trans('messages.alert.delete_success'));
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error($e->getMessage());
+            
+            return redirect()->route('users.index')->with('alert', trans('messages.alert.delete_error'));
+        }
     }
 
     public function logout() 
